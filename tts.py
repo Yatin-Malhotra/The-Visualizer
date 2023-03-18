@@ -1,4 +1,7 @@
 import tkinter as tk
+import speech as sp
+import description as ds
+import process as ps
 
 # Create a new Tkinter window
 window = tk.Tk()
@@ -23,6 +26,16 @@ def handle_button_click():
     # Create a label widget to display text
     speak_label = tk.Label(speak_window, text="Speak into the microphone", font=("Arial", 16))
     speak_label.pack(pady=20)
+    
+    # Take input as speech
+    text = sp.speech_to_text()
+    
+    # Give use that to get input for the other file
+    input_text = ds.generate_description(text)
+    sentiments = ds.get_sentiments(text)
+    
+    # Generate image
+    ps.generate_image(input_text, sentiments)
 
     # Create a function to handle "Done" button clicks
     def handle_done_button_click():
