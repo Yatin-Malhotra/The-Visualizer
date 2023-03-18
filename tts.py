@@ -16,6 +16,9 @@ label.pack(pady=20)
 
 # Create a function to handle button clicks
 def handle_button_click():
+    # Hide the main window
+    window.withdraw()
+    
     # Create a new Tkinter window
     speak_window = tk.Toplevel()
 
@@ -52,14 +55,34 @@ def handle_button_click():
         
         # Generate image
         ps.generate_image(input_text, sentiments)
+        
+        # Create a function to handle "Quit" button clicks
+        def handle_image_quit_button_click():
+            # Close the image window
+            image_window.destroy()
 
+            # Show the main window again
+            window.deiconify()
+            
         # Create a quit button widget
-        image_quit_button = tk.Button(image_window, text="Quit", font=("Arial", 14), command=image_window.withdraw)
+        image_quit_button = tk.Button(image_window, text="Quit", font=("Arial", 14), command=handle_image_quit_button_click)
         image_quit_button.pack(pady=10)
+    
+    # Create a function to handle "Quit" button clicks
+    def handle_speak_quit_button_click():
+        # Close the speak window
+        speak_window.destroy()
+
+        # Show the main window again
+        window.deiconify()
 
     # Create a button widget to quit the current UI window and open the image window
     done_button = tk.Button(speak_window, text="Done", font=("Arial", 14), command=handle_done_button_click)
     done_button.pack(pady=10)
+    
+    # Create a quit button widget to go back to the main window
+    speak_quit_button = tk.Button(speak_window, text="Quit", font=("Arial", 14), command=handle_speak_quit_button_click)
+    speak_quit_button.pack(pady=10)
 
 # Create a button widget
 button = tk.Button(window, text="Run", font=("Arial", 14), command=handle_button_click)
