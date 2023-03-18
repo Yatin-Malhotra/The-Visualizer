@@ -11,8 +11,8 @@ sentiment_rating = -0.046153846153846156
 
 # Define the Google Image Search API endpoint and query parameters
 api_endpoint = "https://www.googleapis.com/customsearch/v1"
-api_key = "your api key"
-search_engine_id = "your search engine ID"
+api_key = "AIzaSyBzanGRpltEDOomXrkrvP3c_mvLtfIh3cg"
+search_engine_id = "b3fdb9739a8c444de"
 
 # Define the image size for each downloaded image
 image_size = (256, 256)
