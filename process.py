@@ -4,10 +4,16 @@ from PIL import Image, ImageDraw, ImageFont
 import numpy as np
 from textblob import TextBlob
 import cv2
+import description as ds
+
+# Read from the text file
+file = open('speech.txt', 'rt')
+temp_lst = file.readlines()
+text = '\n'.join(temp_lst).strip()
 
 # Define the 3-word input and sentiment analysis rating
-input_str = "whip tingly prickly"
-sentiment_rating = -0.046153846153846156
+input_str = ds.generate_description(text)
+sentiment_rating = ds.get_sentiments(text)
 
 # Define the Google Image Search API endpoint and query parameters
 api_endpoint = "https://www.googleapis.com/customsearch/v1"
