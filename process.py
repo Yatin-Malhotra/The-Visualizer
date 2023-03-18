@@ -104,4 +104,5 @@ def generate_image(input_str, sentiment_rating):
 
 
     # Save the resulting image to a file
-    img.save(f"{input_str.replace(' ', '_')}_{sentiment_rating:.2f}.png")
+    # img.save(f"{input_str.replace(' ', '_')}_{sentiment_rating:.2f}.png")
+    img.save("image.png")
