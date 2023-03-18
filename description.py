@@ -87,11 +87,3 @@ def get_sentiments(text):
     blob = TextBlob(text)
     sentiment = blob.sentiment.polarity
     return sentiment
-
-file = open('poem.txt', 'rt')
-temp_lst = file.readlines()
-text = '\n'.join(temp_lst).strip()
-description = generate_description(text)
-sentiment = get_sentiments(text)
-print(description)
-print(sentiment)
