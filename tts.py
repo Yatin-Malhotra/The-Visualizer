@@ -34,9 +34,6 @@ def handle_button_click():
     input_text = ds.generate_description(text)
     sentiments = ds.get_sentiments(text)
     
-    # Generate image
-    ps.generate_image(input_text, sentiments)
-
     # Create a function to handle "Done" button clicks
     def handle_done_button_click():
         # Close the speak window
@@ -52,6 +49,9 @@ def handle_button_click():
         # Create a label widget to display text
         image_label = tk.Label(image_window, text="Here's a rendered image", font=("Arial", 16))
         image_label.pack(pady=20)
+        
+        # Generate image
+        ps.generate_image(input_text, sentiments)
 
         # Create a quit button widget
         image_quit_button = tk.Button(image_window, text="Quit", font=("Arial", 14), command=image_window.withdraw)
